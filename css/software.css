@@ -1,0 +1,87 @@
+/* General */
+#starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* stays behind content */
+  background: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fira Code', monospace;
+  color: #fff;
+  background: transparent;
+  overflow-x: hidden;
+}
+
+/* Hero */
+.soft-hero {
+  text-align: center;
+  padding: 100px 20px;
+  border-radius: 20px;
+  max-width: 900px;
+  margin: 40px auto;
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.soft-hero h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #ff00cc, #3333ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.soft-hero p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #dcdcdc;
+}
+
+/* Sections */
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  background: linear-gradient(90deg, #00e0ff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  padding: 20px 30px;
+  min-width: 220px;
+  transition: all 0.35s ease;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 0 12px rgba(0,0,0,0.5);
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.03);
+  border-color: #ff00ff;
+  box-shadow: 0 0 15px #ff00ff, 0 0 30px #00e0ff;
+}

@@ -1,0 +1,80 @@
+/* General Reset */
+#starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* stays behind content */
+  background: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  background: transparent;
+  overflow-x: hidden;
+}
+
+/* Hero */
+.cyber-hero {
+  text-align: center;
+  padding: 100px 20px;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  margin: 40px auto;
+  max-width: 900px;
+}
+
+.cyber-hero h1 {
+  font-size: 3rem;
+  color: #00ff88; /* neon green */
+}
+
+.cyber-hero p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #cfcfcf;
+}
+
+/* Sections */
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #00c3ff; /* neon blue */
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  padding: 20px 30px;
+  min-width: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 15px #00ff88, 0 0 30px #00c3ff;
+}
