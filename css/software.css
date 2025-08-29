@@ -22,6 +22,58 @@ body {
   overflow-x: hidden;
 }
 
+/* Glassmorphism Navbar */
+.glass-nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.glass-nav .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.glass-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.glass-nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.glass-nav ul li a:hover {
+  color: #00f6ff;
+  text-shadow: 0 0 10px #00f6ff;
+}
+.glass-nav ul li a.active {
+  color: #00f6ff;
+  font-weight: bold;
+  text-shadow: 0 0 15px #00f6ff, 0 0 30px #00f6ff;
+  border-bottom: 2px solid #00f6ff;
+  padding-bottom: 3px;
+}
+
+
 /* Hero */
 .soft-hero {
   text-align: center;

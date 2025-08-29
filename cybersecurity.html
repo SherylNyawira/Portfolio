@@ -7,6 +7,87 @@
   <link rel="stylesheet" href="css/cybersecurity.css">
 </head>
 <body>
+  <!-- navigation bar -->
+  <nav class="glass-nav">
+  <div class="logo">Sheryl Ann</div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" >About</a></li>
+    <li class="dropdown">
+      <a href="projects.html" class="active">Projects ▼</a>
+      <ul class="dropdown-content">
+        <li><a href="cybersecurity.html">Cybersecurity</a></li>
+        <li><a href="software.html">Software Engineering</a></li>
+      </ul>
+        </li>
+        <style>
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        min-width: 160px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        z-index: 1;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      .dropdown:hover .dropdown-content,
+      .dropdown:focus-within .dropdown-content,
+      .dropdown:active .dropdown-content {
+        display: block;
+      }
+      .dropdown {
+        position: relative;
+      }
+      .dropdown-content li a {
+        display: block;
+        padding: 10px 16px;
+        color: #333;
+        text-decoration: none;
+      }
+      .dropdown-content li a:hover {
+        background-color: #141414;
+        border-bottom: 2px solid #0ec0c0;
+      }
+        </style>
+        <script>
+      // Show dropdown on click or hover
+      document.addEventListener('DOMContentLoaded', function() {
+        var dropdown = document.querySelector('.dropdown');
+        var dropdownContent = dropdown.querySelector('.dropdown-content');
+        // Ensure dropdown is hidden on page load
+        dropdownContent.style.display = 'none';
+        // Show/hide on click (for mobile/touch)
+        dropdown.querySelector('a').addEventListener('click', function(e) {
+          e.preventDefault();
+          dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+        });
+        // Show on hover (for desktop)
+        dropdown.addEventListener('mouseenter', function() {
+          dropdownContent.style.display = 'block';
+        });
+        dropdown.addEventListener('mouseleave', function() {
+          dropdownContent.style.display = 'none';
+        });
+      });
+        // Hide dropdown when mouse leaves the dropdown area
+        dropdown.addEventListener('mouseleave', function() {
+          dropdownContent.style.display = 'none';
+        });
+
+        // Hide dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!dropdown.contains(e.target)) {
+            dropdownContent.style.display = 'none';
+          }
+        });
+        </script>
+    </li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+
   <!-- Starfield Background -->
   <canvas id="starfield"></canvas>
   <div id="cursor"></div>
@@ -17,49 +98,301 @@
     <p>Protecting systems, hunting threats, and defending the digital frontier.</p>
   </section>
 
-  <!-- Skills Section -->
-  <section class="skills">
-    <h2>Core Skills</h2>
-    <div class="cards">
-      <div class="card">Penetration Testing</div>
-      <div class="card">Network Security</div>
-      <div class="card">Vulnerability Assessment</div>
-      <div class="card">Incident Response</div>
-      <div class="card">SIEM & Threat Hunting</div>
+  <!-- skills section -->
+<section class="skills">
+  <h2>Core Skills</h2>
+  <div class="glass-gallery scrollable">
+    
+    <!-- Card 1 -->
+    <div class="glass-card" 
+         data-title="Penetration Testing" 
+         data-detail="Testing applications and networks for vulnerabilities to strengthen defenses." 
+         data-img="assets/image-removebg-preview (3).png">
+      <img src="assets/image-removebg-preview (3).png" alt="Penetration Testing">
+      <p>Penetration Testing</p>
     </div>
-  </section>
 
-  <!-- Tools Section -->
-  <section class="tools">
-    <h2>Tools I Use</h2>
-    <div class="cards">
-      <div class="card">Wireshark</div>
-      <div class="card">Burp Suite</div>
-      <div class="card">Nmap</div>
-      <div class="card">Metasploit</div>
-      <div class="card">Splunk</div>
-      <div class="card">Kali Linux</div>
+    <!-- Card 2 -->
+    <div class="glass-card" 
+         data-title="Network Security" 
+         data-detail="Configuring firewalls, IDS/IPS, and securing communications against attacks." 
+         data-img="images/skills/network.png">
+      <img src="images/skills/network.png" alt="Network Security">
+      <p>Network Security</p>
     </div>
-  </section>
 
-  <!-- Projects Section -->
+    <!-- Card 3 -->
+    <div class="glass-card" 
+         data-title="Incident Response" 
+         data-detail="Responding to cyber incidents with containment, eradication, and recovery." 
+         data-img="images/skills/incident.png">
+      <img src="images/skills/incident.png" alt="Incident Response">
+      <p>Incident Response</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" aria-label="Close">&times;</span>
+
+    <div class="modal-body">
+      <div class="modal-image">
+        <img id="modal-img" src="" alt="">
+      </div>
+
+      <div class="modal-text">
+        <h3 id="modal-title"></h3>
+        <p id="modal-detail"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Tools Section -->
+<section id="cyber-tools">
+  <h2>Tools that I Use</h2>
+
+<!-- row 1 -->
+  <div class="tools-wrapper">
+    <div class="tools-row  left-scroll">
+      <span><img src="assets/kali.png" alt="Kali" /> Kali Linux</span>
+      <span><img src="assets/metasploitable.png" alt="Metasploit" /> Metasploit</span>
+      <span><img src="assets/burpsuite.png" alt="Burp" /> Burp Suite</span>
+      <span><img src="assets/Nmap.png" alt="Nmap" /> Nmap</span>
+      <span><img src="assets/wireshark.png" alt="Wireshark" /> Wireshark</span>
+      <span><img src="assets/linux.png" alt="linux" /> Linux</span>
+      <span><img src="assets/gobuster.png" alt="Gobuster" /> Gobuster</span>
+      <span><img src="assets/wazuh.png" alt="Wazuh" /> Wazuh</span>
+      <span><img src="assets/python.png" alt="Python" /> Python</span>
+
+    </div>
+
+
+  <!-- Row 2 -->
+  <div class="tools-row right-scroll ">
+    <span><img src="assets/parotos.png" alt="Parrot" /> Parrot OS</span>
+    <span><img src="assets/nessus.png" alt="Nessus" /> Nessus</span>
+    <span><img src="assets/jripper.png" alt="John" /> John the Ripper</span>
+    <span><img src="assets/hydra.png" alt="Hydra" /> Hydra</span>
+    <span><img src="assets/Openvas.png" alt="OpenVAS" /> OpenVAS</span>
+    <span><img src="assets/Docker.png" alt="Docker" /> Docker</span>
+    <span><img src="assets/splunk.png" alt="Splunk" /> Splunk</span>
+    <span><img src="assets/hashcat.png" alt="Hashcat" /> Hashcat</span>
+    <span><img src="assets/cisco.png" alt="Cisco" /> Cisco Packet Tracer</span>
+    <span><img src="assets/owasp.png" alt="OWASP" /> OWASP </span>
+    <span><img src="assets/kali.png" alt="Kali" /> Kali Linux</span>
+    <span><img src="assets/sqlmap.png" alt="SQLmap" /> SQLmap</span>
+
+
+  </div>
+
+  <!-- Row 3 -->
+  <div class="tools-row  left-scroll">
+    <span><img src="assets/Fedora.png" alt="Fedora" /> Fedora OS</span>
+    <span><img src="assets/owasp.png" alt="OWASP" /> OWASP </span>
+    <span><img src="assets/sqlmap.png" alt="SQLmap" /> SQLmap</span>
+    <span><img src="assets/aircrack-ng.png" alt="Aircrack" /> Aircrack-ng</span>
+    <span><img src="assets/windows.png" alt="Windows" /> Windows</span>
+    <span><img src="assets/oracle.png" alt="Oracle VM" /> Oracle VM</span>
+    <span><img src="assets/ubuntu.png" alt="Ubuntu" /> Ubuntu</span>
+    <span><img src="assets/elk.png" alt="ELK" /> ELK</span>
+    <span><img src="assets/Hydra.png" alt="THC" /> Hydra</span>
+  
+    
+  </div>
+
+    <div class="tools-row right-scroll ">
+    <span><img src="assets/parotos.png" alt="Parrot" /> Parrot OS</span>
+    <span><img src="assets/cisco.png" alt="Cisco" /> Cisco Packet Tracer</span>
+    <span><img src="assets/hydra.png" alt="Hydra" /> Hydra</span>
+    <span><img src="assets/Openvas.png" alt="OpenVAS" /> OpenVAS</span>
+    <span><img src="assets/Docker.png" alt="Docker" /> Docker</span>
+    <span><img src="assets/splunk.png" alt="Splunk" /> Splunk</span>
+    <span><img src="assets/metasploitable.png" alt="Metasploit" /> Metasploit</span>
+    <span><img src="assets/burpsuite.png" alt="Burp" /> Burp Suite</span>
+    <span><img src="assets/Nmap.png" alt="Nmap" /> Nmap</span>
+    <span><img src="assets/wireshark.png" alt="Wireshark" /> Wireshark</span>
+    <span><img src="assets/jripper.png" alt="John" /> John the Ripper</span>
+    <span><img src="assets/sqlmap.png" alt="SQLmap" /> SQLmap</span>
+    <span><img src="assets/nessus.png" alt="Nessus" /> Nessus</span>
+    <span><img src="assets/hashcat.png" alt="Hashcat" /> Hashcat</span>
+    <span><img src="assets/owasp.png" alt="OWASP" /> OWASP </span>
+    <span><img src="assets/kali.png" alt="Kali" /> Kali Linux</span>
+</section>
+
+
+   <!-- Projects Section -->
   <section class="projects">
-    <h2>Cyber Projects</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>CTF Challenges</h3>
-        <p>Competed in Capture The Flag competitions, specializing in web exploitation and privilege escalation.</p>
+    <div class="projects-header">
+      <h2>Cyber Projects & Certifications</h2>
+      <p class="projects-subtitle">Hands-on experience in cybersecurity research and implementation</p>
+    </div>
+    
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+      
+      <div class="timeline-item left">
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-card" 
+          data-title="CTF Challenges"
+          data-description="I competed in Capture The Flag competitions focusing on web exploitation, reverse engineering, and privilege escalation. These challenges helped me build strong problem-solving skills and real-world offensive security experience."
+          data-img="assets/projects/ctf-lab.png">
+          <div class="project-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>CTF Challenges</h3>
+          <p>Competed in Capture The Flag competitions, specializing in web exploitation, reverse engineering, and privilege escalation techniques.</p>
+          <div class="project-tags">
+            <span class="tag">Web Exploitation</span>
+            <span class="tag">Reverse Engineering</span>
+            <span class="tag">Privilege Escalation</span>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <h3>SIEM Dashboards</h3>
-        <p>Created dashboards to monitor real-time security threats using Splunk and ELK.</p>
+
+      <div class="timeline-item right">
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-card"
+            data-title="SIEM Dashboards"
+            data-description="Created comprehensive dashboards to monitor real-time threats using Splunk and ELK stack. Designed for enterprise-scale log correlation, anomaly detection, and security alerting."
+            data-img="assets/projects/siem.png">
+          <div class="project-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+              <circle cx="8.5" cy="8.5" r=".5" fill="currentColor"/>
+              <circle cx="15.5" cy="8.5" r=".5" fill="currentColor"/>
+              <circle cx="8.5" cy="15.5" r=".5" fill="currentColor"/>
+              <circle cx="15.5" cy="15.5" r=".5" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3>SIEM Dashboards</h3>
+          <p>Created comprehensive dashboards to monitor real-time security threats and anomalies using Splunk and ELK stack for enterprise environments.</p>
+          <div class="project-tags">
+            <span class="tag">Splunk</span>
+            <span class="tag">ELK Stack</span>
+            <span class="tag">Threat Monitoring</span>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <h3>Penetration Test Lab</h3>
-        <p>Built a home lab with Kali, Metasploitable, and Windows VMs for red team/blue team simulations.</p>
+
+      <div class="timeline-item left">
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-card"
+            data-title="Penetration Test Lab"
+            data-description="Set up a full red team/blue team lab with Kali Linux, Metasploitable, and Windows VMs. Used for penetration testing practice, privilege escalation, and defense strategies."
+            data-img="assets/projects/pentest-lab.png">
+          <div class="project-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+              <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2"/>
+              <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>Penetration Test Lab</h3>
+          <p>Built a comprehensive home laboratory with Kali Linux, Metasploitable, and Windows VMs for red team and blue team security simulations.</p>
+          <div class="project-tags">
+            <span class="tag" >Red Team</span>
+            <span class="tag">Blue Team</span>
+            <span class="tag">Virtualization</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-card"
+            data-title="Vulnerability Assessment"
+            data-description="Conducted in-depth security audits with Nessus, OpenVAS, and OWASP techniques. Combined automated scanning with manual validation to highlight critical exposures."
+            data-img="assets/projects/vulnerability.png">
+          <div class="project-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Vulnerability Assessment</h3>
+          <p>Conducted comprehensive security assessments using automated scanning tools and manual testing methodologies to identify critical vulnerabilities.</p>
+          <div class="project-tags">
+            <span class="tag">OWASP</span>
+            <span class="tag">Nessus</span>
+            <span class="tag">Manual Testing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item left">
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-card"
+            data-title="Security Policies"
+            data-description="Developed security policies and incident response playbooks based on NIST and ISO 27001 frameworks. Ensured compliance and structured escalation paths."
+            data-img="assets/projects/policies.png">
+          <div class="project-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" stroke="currentColor" stroke-width="2"/>
+              <rect x="8" y="2" width="8" height="4" rx="1" ry="1" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>Security Policies</h3>
+          <p>Developed comprehensive security policies and incident response procedures following industry best practices and compliance frameworks.</p>
+          <div class="project-tags">
+            <span class="tag">Policy Development</span>
+            <span class="tag">Compliance</span>
+            <span class="tag">Risk Management</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-card"
+            data-title="Network Hardening"
+            data-description="Applied CIS benchmarks, firewall tuning, and endpoint protections to harden enterprise infrastructure. Reduced attack surface and enforced best practices."
+            data-img="assets/projects/hardening.png">
+          <div class="project-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>Network Hardening</h3>
+          <p>Implemented security configurations and hardening procedures for enterprise networks, reducing attack surface and improving overall security posture.</p>
+          <div class="project-tags">
+            <span class="tag">Network Security</span>
+            <span class="tag">Firewall Configuration</span>
+            <span class="tag">System Hardening</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- Modal -->
+<div id="project-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img id="modal-img" src="" alt="Project Image">
+    <h3 id="modal-title"></h3>
+    <p id="modal-description"></p>
+  </div>
+</div>
+  
 
   <script src="/script.js"></script>
 </body>

@@ -65,7 +65,7 @@ function animate() {
 
     if (trail.opacity <= 0) trails.splice(i, 1);
   });
-
+  
   requestAnimationFrame(animate);
 }
 animate();
@@ -89,6 +89,68 @@ function navigateTo(pageId) {
   currentPage = pages.indexOf(pageId);
 }
 
+// Modal
+const modal = document.getElementById("modal");
+const modalTitle = document.getElementById("modal-title");
+const modalDetail = document.getElementById("modal-detail");
+const modalImg = document.getElementById("modal-img");
+const closeBtn = document.querySelector(".modal .close");
 
+document.querySelectorAll(".glass-card").forEach(card => {
+  card.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalTitle.textContent = card.dataset.title;
+    modalDetail.textContent = card.dataset.detail;
+    modalImg.src = card.dataset.img;
+  });
+});
 
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = e => { if (e.target === modal) modal.style.display = "none"; }
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") modal.style.display = "none";
+});
 
+const timelineItems = document.querySelectorAll('.timeline-item');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');  // animate in
+      } else {
+        entry.target.classList.remove('show'); // remove when out of view
+      }
+    });
+  }, { threshold: 0.2 });
+
+  timelineItems.forEach(item => observer.observe(item));
+
+// Project cybersecurity Modal Elements
+const projectModal = document.getElementById("project-modal");
+const projectModalImg = document.getElementById("modal-img");
+const projectModalTitle = document.getElementById("modal-title");
+const projectModalDescription = document.getElementById("modal-description");
+const closeProjectModal = document.querySelector(".modal .close");
+
+// Open modal on card click
+document.querySelectorAll(".timeline-card").forEach(card => {
+  card.addEventListener("click", () => {
+    projectModal.style.display = "flex";
+    projectModalImg.src = card.getAttribute("data-img");
+    projectModalTitle.textContent = card.getAttribute("data-title");
+    projectModalDescription.textContent = card.getAttribute("data-description");
+  });
+});
+
+// Close modal
+closeProjectModal.addEventListener("click", () => {
+  projectModal.style.display = "none";
+});
+projectModal.querySelector(".close").addEventListener("click", () => {
+  projectModal.style.display = "none";
+});
+
+// Close if clicked outside modal-content
+window.addEventListener("click", (e) => {
+  if (e.target === projectModal) projectModal.style.display = "none";
+});
