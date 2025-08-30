@@ -91,6 +91,14 @@ body {
   text-shadow: 0 0 10px #e3dcdc, 0 0 20px #ff4ecb;
   transition: color 0.2s, text-shadow 0.2s;
 }
+
+/* Responsive for 480px */
+@media (max-width: 480px) {
+  .cyber-hero h1 {
+    font-size: 2.2rem;
+  }
+}
+
 .cyber-hero h1:hover {
   color: #cfcfcf;
   text-shadow:
@@ -627,6 +635,9 @@ h2:hover {
 }
 
 @media (max-width: 480px) {
+  .cyber-hero {
+    font-size: 2.5rem;
+  }
   .projects {
     padding: 80px 16px;
   }
@@ -657,13 +668,14 @@ h2:hover {
     font-size: 0.9rem;
     margin-bottom: 20px;
   }
-   .timeline-card h3 {
+  .timeline-card h3 {
     font-size: 0.6rem;
-    padding: auto;
+    padding: 0 4px;
   }
   .timeline-card p {
     font-size: 0.5rem;
-    padding: auto;
+    padding: 0 4px;
+  }
   }
   .tag {
     font-size: 0.3rem;
