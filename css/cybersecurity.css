@@ -619,6 +619,7 @@ h2:hover {
   }
   .timeline-card h3 {
     font-size: 0.9rem;
+    ;
   }
   .timeline-card p {
     font-size: 0.75rem;
@@ -658,12 +659,14 @@ h2:hover {
   }
    .timeline-card h3 {
     font-size: 0.6rem;
+    padding: auto;
   }
   .timeline-card p {
     font-size: 0.5rem;
+    padding: auto;
   }
   .tag {
-    font-size: 0.8rem;
+    font-size: 0.3rem;
     padding: 4px 10px;
   }
 }
