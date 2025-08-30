@@ -584,7 +584,7 @@ h2:hover {
 
 @media (max-width: 768px) {
   .projects-header h2 {
-    font-size: 2.5rem;
+    font-size: 1.9rem;
   }
   
   .projects-subtitle {
@@ -615,7 +615,13 @@ h2:hover {
   }
   
   .project-description {
-    font-size: 0.95rem;
+    font-size: 0.5rem;
+  }
+  .timeline-card h3 {
+    font-size: 0.9rem;
+  }
+  .timeline-card p {
+    font-size: 0.75rem;
   }
 }
 
@@ -629,7 +635,7 @@ h2:hover {
   }
   
   .projects-header h2 {
-    font-size: 3rem;
+    font-size: 0.5rem;
   }
   
   .project-card {
@@ -650,7 +656,12 @@ h2:hover {
     font-size: 0.9rem;
     margin-bottom: 20px;
   }
-  
+   .timeline-card h3 {
+    font-size: 0.6rem;
+  }
+  .timeline-card p {
+    font-size: 0.5rem;
+  }
   .tag {
     font-size: 0.8rem;
     padding: 4px 10px;
@@ -740,7 +751,7 @@ h2:hover {
   top: 40px;
   left: 50%;
   transform: translateX(-50%);
-  box-shadow: 0 0 10px #00ff88, 0 0 20px #00c3ff;
+  box-shadow: 0 0 10px #00ff88, 0 0 20px hsl(194, 100%, 50%);
   animation: pulse 2s infinite;
 }
 
@@ -758,7 +769,7 @@ h2:hover {
     inset 0 1px 1px rgba(255, 255, 255, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 2;
-  font-size: 1.2rem;
+  
 }
 
 /* Yea found the main nowHover floating effect */
@@ -790,7 +801,7 @@ h2:hover {
 }
 
 .timeline-card .project-content p {
- font-size: 1.05rem;
+ font-size: 5rem;
  line-height: 1.6;
  color: rgba(255, 255, 255, 0.8);
 }
@@ -890,94 +901,84 @@ h2:hover {
   }
 
   .glass-nav ul {
-    flex-direction: column;
+    flex-direction: row;
     gap: 15px;
     align-items: flex-start;
   }
 
   .glass-nav .logo {
     margin-bottom: 10px;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
   }
 
   .cyber-hero {
-    padding: 40px 6px;
+    padding: 60px 10px;
     max-width: 100%;
-    margin: 12px auto;
-    border-radius: 10px;
-  }
-
-  .cyber-hero h1 {
-    font-size: 2rem;
-  }
-
-  .cyber-hero p {
-    font-size: 1rem;
+    margin: 20px auto;
+    border-radius: 12px;
   }
 
   .cards {
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
   }
 
   .card {
     margin-bottom: 0;
     min-width: 0;
     width: 100%;
-    border-radius: 10px;
-    padding: 10px 6px;
-    font-size: 0.85rem;
+    border-radius: 12px;
+    padding: 16px 10px;
   }
 
   .projects {
-    padding: 24px 4px;
+    padding: 40px 8px;
   }
 
   .projects-header {
-    margin-bottom: 24px;
+    margin-bottom: 40px;
   }
 
   .projects-header h2 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
+    font-size: 1rem;
+    margin-bottom: 10px;
   }
 
   .projects-subtitle {
-    font-size: 0.85rem;
-    max-width: 98vw;
+    font-size: 1rem;
+    max-width: 95vw;
   }
 
   .projects-grid {
     grid-template-columns: 1fr;
-    gap: 10px;
-    margin-top: 18px;
+    gap: 16px;
+    margin-top: 30px;
   }
 
   .project-card,
   .project-card.featured {
-    padding: 10px 6px;
+    padding: 18px 10px;
     height: auto;
-    border-radius: 10px;
-    font-size: 0.8rem;
+    border-radius: 14px;
   }
 
   .icon-wrapper {
-    width: 36px;
-    height: 36px;
+    width: 48px;
+    height: 48px;
   }
 
   .project-content h3 {
-    font-size: 0.95rem;
-    margin-bottom: 4px;
-  }
-
-  .project-description {
-    font-size: 0.7rem;
+    font-size: 8rem;
     margin-bottom: 8px;
   }
 
+  .project-description {
+    font-size: 0.5rem;
+    margin-bottom: 12px;
+  }
+
   .tag {
-    font-size: 0.65rem;
-    padding: 3px 6px;
+    font-size: 0.75rem;
+    padding: 4px 8px;
   }
 }
