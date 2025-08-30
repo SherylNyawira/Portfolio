@@ -878,3 +878,106 @@ h2:hover {
   from { transform: translateY(-50px); opacity: 0; }
   to   { transform: translateY(0); opacity: 1; }
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .glass-nav {
+    flex-direction: column;
+    padding: 10px;
+    width: 96%;
+    top: 10px;
+    border-radius: 14px;
+  }
+
+  .glass-nav ul {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .glass-nav .logo {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+
+  .cyber-hero {
+    padding: 40px 6px;
+    max-width: 100%;
+    margin: 12px auto;
+    border-radius: 10px;
+  }
+
+  .cyber-hero h1 {
+    font-size: 2rem;
+  }
+
+  .cyber-hero p {
+    font-size: 1rem;
+  }
+
+  .cards {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .card {
+    margin-bottom: 0;
+    min-width: 0;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px 6px;
+    font-size: 0.85rem;
+  }
+
+  .projects {
+    padding: 24px 4px;
+  }
+
+  .projects-header {
+    margin-bottom: 24px;
+  }
+
+  .projects-header h2 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .projects-subtitle {
+    font-size: 0.85rem;
+    max-width: 98vw;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .project-card,
+  .project-card.featured {
+    padding: 10px 6px;
+    height: auto;
+    border-radius: 10px;
+    font-size: 0.8rem;
+  }
+
+  .icon-wrapper {
+    width: 36px;
+    height: 36px;
+  }
+
+  .project-content h3 {
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+  }
+
+  .project-description {
+    font-size: 0.7rem;
+    margin-bottom: 8px;
+  }
+
+  .tag {
+    font-size: 0.65rem;
+    padding: 3px 6px;
+  }
+}

@@ -21,6 +21,7 @@ body {
   background: cyan;
   position: absolute;
   pointer-events: none;
+  
   transform: translate(-50%, -50%);
   box-shadow: 0 0 20px cyan;
 }
@@ -45,9 +46,30 @@ body {
 }
 
 .about-left p {
-  font-size: 1.3rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.5;
   color: #ddd;
+  position: relative;
+}
+
+.about-left p::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: cyan;
+  margin-left: 5px;
+  vertical-align: middle;
+  animation: blinkCursor 1s steps(1) infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 90% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 .about-right img {
@@ -60,12 +82,67 @@ body {
   border: 3px solid cyan;
   /* border-radius: 50%; */
   filter: drop-shadow(0 0 20px cyan);
+  transition: transform 0.3s ease;
+  animation: fadeInLeft 1s ease-out;
+  -webkit-animation: fadeInLeft 1s ease-out;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+  
+
+
+.about-right img:hover {
+  transform: scale(1.05);
 }
 .buttons {
   margin-top: -50px;
   display: flex;
   justify-content: center;
   gap: 15px;
+  animation: fadeInUp 1s ease-out;
+  -webkit-animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
 }
 .buttons .btn {
   padding: 15px 24px;

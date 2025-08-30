@@ -154,3 +154,30 @@ projectModal.querySelector(".close").addEventListener("click", () => {
 window.addEventListener("click", (e) => {
   if (e.target === projectModal) projectModal.style.display = "none";
 });
+
+
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple form validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && email && message) {
+                // In a real application, you would send the form data to a server here
+                // For this example, we'll just show the success message
+                document.getElementById('successMessage').style.display = 'block';
+                
+                // Reset the form
+                document.getElementById('contactForm').reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(function() {
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 5000);
+            }
+        });
+
+        // Handle contact form submit
