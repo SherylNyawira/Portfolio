@@ -146,12 +146,31 @@ h2 {
   color: #fff;
 }
 
+
+
 .contact-section h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
   font-weight: bold;
   position: relative;
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
 }
+
+.contact-section h2:hover {
+  transform: scale(1.08);
+  
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 
 /* Social Links */

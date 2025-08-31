@@ -180,4 +180,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
             }
         });
 
-        // Handle contact form submit
+ // Handle contact button to contact section
+ document.getElementById('contactButton').addEventListener('click', function() {
+   document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+ });
