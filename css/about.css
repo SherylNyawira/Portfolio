@@ -166,6 +166,25 @@ body {
   box-shadow: 0 0 15px #00f6ff, 0 0 30px #00f6ff;
 }
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 5%;
+  }
+
+  .about-right img {
+    margin-top: 30px;
+    max-width: 80%;
+  }
+
+  .btn {
+    padding: 12px 19px;
+    font-size: 0.65rem;
+  }
+}
+
 /* Glassmorphism Navbar */
 .glass-nav {
   position: fixed;
@@ -218,19 +237,47 @@ body {
 }
 /* Responsive */
 @media (max-width: 768px) {
-  .about {
-    flex-direction: column;
-    text-align: center;
-    padding: 50px 5%;
+  .glass-nav {
+    width: 98%;
+    padding: 4px 8px;
+    margin: 0 auto;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    flex-direction: column
   }
-
-  .about-right img {
-    margin-top: 30px;
-    max-width: 80%;
-  }
-  
 }
-
+@media (max-width: 480px) {
+  body {
+    padding: 0 2vw;
+  }
+  .about {
+    padding: 30px 0;
+    min-height: unset;
+    width: 100vw;
+    box-sizing: border-box;
+  }
+  .about-left {
+    padding-right: 0;
+    width: 100%;
+  }
+  .about-right img {
+    margin-top: 20px;
+    max-width: 90vw;
+  }
+  .buttons {
+    margin-left: 0;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .glass-nav {
+    left: 0;
+    transform: none;
+    width: 100vw;
+    border-radius: 30px;
+    padding: 4px 0;
+  }
+}
 
 
 /* Contact Section */
