@@ -94,7 +94,7 @@ const modal = document.getElementById("modal");
 const modalTitle = document.getElementById("modal-title");
 const modalDetail = document.getElementById("modal-detail");
 const modalImg = document.getElementById("modal-img");
-const closeBtn = document.querySelector(".modal .close");
+const closeBtn = document.querySelector("#modal .close");
 
 document.querySelectorAll(".glass-card").forEach(card => {
   card.addEventListener("click", () => {
@@ -113,24 +113,24 @@ document.addEventListener("keydown", e => {
 
 const timelineItems = document.querySelectorAll('.timeline-item');
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');  // animate in
-      } else {
-        entry.target.classList.remove('show'); // remove when out of view
-      }
-    });
-  }, { threshold: 0.2 });
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');  // animate in
+    } else {
+      entry.target.classList.remove('show'); // remove when out of view
+    }
+  });
+}, { threshold: 0.2 });
 
-  timelineItems.forEach(item => observer.observe(item));
+timelineItems.forEach(item => observer.observe(item));
 
 // Project cybersecurity Modal Elements
 const projectModal = document.getElementById("project-modal");
-const projectModalImg = document.getElementById("modal-img");
-const projectModalTitle = document.getElementById("modal-title");
-const projectModalDescription = document.getElementById("modal-description");
-const closeProjectModal = document.querySelector(".modal .close");
+const projectModalImg = document.getElementById("project-modal-img");
+const projectModalTitle = document.getElementById("project-modal-title");
+const projectModalDescription = document.getElementById("project-modal-description");
+const closeProjectModal = document.querySelector("#project-modal .close");
 
 // Open modal on card click
 document.querySelectorAll(".timeline-card").forEach(card => {

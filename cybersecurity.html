@@ -107,28 +107,44 @@
     <!-- Card 1 -->
     <div class="glass-card" 
          data-title="Penetration Testing" 
-         data-detail="Testing applications and networks for vulnerabilities to strengthen defenses." 
-         data-img="assets/image-removebg-preview (3).png">
-      <img src="assets/image-removebg-preview (3).png" alt="Penetration Testing">
-      <p>Penetration Testing</p>
+         data-detail="Testing applications and networks for vulnerabilities to strengthen defenses.Below is a sample of my Uber Penetration Testing Report."
+         data-img="skills/pentestreport.png">
+      <img src="skills/pentestreport.png" alt="Penetration Testing">
+      <p>Penetration Testing and Report writing</p>
     </div>
 
     <!-- Card 2 -->
     <div class="glass-card" 
-         data-title="Network Security" 
+         data-title="Network Security Engineering" 
          data-detail="Configuring firewalls, IDS/IPS, and securing communications against attacks." 
-         data-img="images/skills/network.png">
-      <img src="images/skills/network.png" alt="Network Security">
-      <p>Network Security</p>
+         data-img="skills/network.png">
+      <img src="skills/network.png" alt="Network Security">
+      <p>Network Security Engineering</p>
     </div>
 
     <!-- Card 3 -->
     <div class="glass-card" 
-         data-title="Incident Response" 
-         data-detail="Responding to cyber incidents with containment, eradication, and recovery." 
-         data-img="images/skills/incident.png">
-      <img src="images/skills/incident.png" alt="Incident Response">
-      <p>Incident Response</p>
+         data-title="Threat Detection" 
+         data-detail="Hands-on experience with SIEM tools for log management, threat detection, and incident investigation. Skilled in creating correlation rules, configuring alerts, and generating compliance reports." 
+         data-img="skills/incident.png">
+      <img src="projects/siem.png" alt="Threat Detection">
+      <p>Threat Detection</p>
+    </div>
+    <!-- card 4 -->
+    <div class="glass-card" 
+         data-title="LAMP Stack  Development" 
+         data-detail="Configured a Fedora-based LAMP stack with secure authentication, database hardening, custom error handling, and web application security policies.Securing LAMP stack applications through best practices and vulnerability assessments." 
+         data-img="skills/lampstack.png">
+      <img src="skills/lampstack.png" alt="LAMP Stack Development">
+      <p>LAMP Stack Development and Security</p>
+    </div>   
+    <!-- Card 5 -->
+    <div class="glass-card" 
+         data-title="Simulation Report Writing" 
+         data-detail="Documented penetration tests and simulations with professional reporting, including findings, evidence, remediation, and recommendations." 
+         data-img="skills/simulation.png">
+      <img src="skills/simulation.png" alt="Simulation Report Writing">
+      <p>Simulation Report Writing</p>
     </div>
 
   </div>
@@ -147,10 +163,64 @@
       <div class="modal-text">
         <h3 id="modal-title"></h3>
         <p id="modal-detail"></p>
+        <div id="modal-download" style="margin-top:10px;display:none;">
+          <a id="modal-download-link" href="" target="_blank" download style="color:#0ec0c0;text-decoration:underline;">
+            Download My Report PDF
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<script>
+  // Modal logic for skills cards
+  document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.glass-card');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDetail = document.getElementById('modal-detail');
+    const modalClose = modal.querySelector('.close');
+    const modalDownload = document.getElementById('modal-download');
+    const modalDownloadLink = document.getElementById('modal-download-link');
+
+    cards.forEach(card => {
+      card.addEventListener('click', function() {
+        modal.style.display = 'block';
+        modalImg.src = card.getAttribute('data-img');
+        modalTitle.textContent = card.getAttribute('data-title');
+        modalDetail.innerHTML = card.getAttribute('data-detail');
+        // Show download link for Penetration Testing, LAMP Stack Development, and Simulation Report Writing
+        if (
+          card.getAttribute('data-title') === 'Penetration Testing' ||
+          card.getAttribute('data-title') === 'LAMP Stack  Development' ||
+          card.getAttribute('data-title') === 'Simulation Report Writing'
+        ) {
+          modalDownload.style.display = 'block';
+          // Set the correct PDF for each card
+          if (card.getAttribute('data-title') === 'Penetration Testing') {
+            modalDownloadLink.href = 'files/Sherylann_Test_Report_uber.pdf';
+          } else if (card.getAttribute('data-title') === 'LAMP Stack  Development') {
+            modalDownloadLink.href = 'files/NET300 - Web Presentation  (SN)LAMP.pdf';
+          } else if (card.getAttribute('data-title') === 'Simulation Report Writing') {
+            modalDownloadLink.href = 'files/NET300 - Web Presentation  (SN)LAMP.pdf';
+          }
+        } else {
+          modalDownload.style.display = 'none';
+        }
+      });
+    });
+
+    modalClose.onclick = function() {
+      modal.style.display = 'none';
+    };
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    };
+  });
+</script>
 
 
 <!-- Tools Section -->
@@ -242,19 +312,71 @@
         </div>
         <div class="timeline-card" 
           data-title="CTF Challenges"
-          data-description="I competed in Capture The Flag competitions focusing on web exploitation, reverse engineering, and privilege escalation. These challenges helped me build strong problem-solving skills and real-world offensive security experience."
-          data-img="assets/projects/ctf-lab.png">
+          data-description="Armed with tools like Hydra, John the Ripper, Gobuster, Python, chmod, Nmap, SSH, and hash cracking, and a lot of determination, I explored ports, hunted for hidden directories, cracked passwords, and uncovered clues one step at a time."
+          data-img="projects/ctf.png">
           <div class="project-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
           <h3>CTF Challenges</h3>
-          <p>Competed in Capture The Flag competitions, specializing in web exploitation, reverse engineering, and privilege escalation techniques.</p>
+          <p>Proud to have placed in the top 3 of the inaugural Moringa Cyber Knights CTF!, specializing in web exploitation, SQL injection exploitation,Hash cracking, and privilege escalation techniques.</p>
           <div class="project-tags">
             <span class="tag">Web Exploitation</span>
             <span class="tag">Reverse Engineering</span>
             <span class="tag">Privilege Escalation</span>
+          </div>
+        </div>
+      </div>
+            <!-- Cisco Packet Tracer Certificate -->
+      <div class="timeline-item right">
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-card"
+            data-title="Cisco Packet Tracer Certification"
+            data-description="Completed Cisco Packet Tracer certification, demonstrating practical networking skills in routing, switching, and simulation environments."
+            data-img="projects/ciscopkttracercert.png">
+          <div class="project-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+              <path d="M7 7h10v10H7z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>Cisco Packet Tracer Certification</h3>
+          <p>Gained hands-on experience in network design, troubleshooting, and simulation using Cisco Packet Tracer.</p>
+          <div class="project-tags">
+            <span class="tag">Networking</span>
+            <span class="tag">Cisco</span>
+            <span class="tag"><a href='https://www.credly.com/badges/2adcc2f4-7389-4138-a021-15cd6b7cd86c' target='_blank' rel='noopener'>Packet Tracer Badge</a></span>
+            <span class="tag">Packet Tracer</span>
+            <span class="tag">Certification</span>
+          </div>
+        </div>
+      </div>
+      <!-- ARXC Cybersecurity Certificate -->
+      <div class="timeline-item left">
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-card"
+            data-title="ARXC Cybersecurity Certificate"
+            data-description="Earned the ARXC cert, validating security fundamentals, risk management, and hands-on policy implementation."
+            data-img="projects/arcx.png">
+          <div class="project-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 2l7 4v5c0 5-7 9-7 9s-7-4-7-9V6l7-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>ARXC Cybersecurity Certificate</h3>
+          <p>Validated skills in security fundamentals, risk analysis, and policy controls.</p>
+          <div class="project-tags">
+            <span class="tag"><a href='https://arcx.io/verify-certificate?id=284d7ed8e1701fada8259660b9151a958c1f2f5e&amp;k=b680d27663c34c409355449a61dd6801' target='_blank' rel='noopener'>ARXC Certification</a></span>
+            <span class="tag">Cybersecurity</span>
+            <span class="tag">Cyber Threat Intelligence</span>
+            <span class="tag">Risk Management</span>
+            <span class="tag">Security Policies</span>
           </div>
         </div>
       </div>
@@ -265,8 +387,8 @@
         </div>
         <div class="timeline-card"
             data-title="SIEM Dashboards"
-            data-description="Created comprehensive dashboards to monitor real-time threats using Splunk and ELK stack. Designed for enterprise-scale log correlation, anomaly detection, and security alerting."
-            data-img="assets/projects/siem.png">
+            data-description="Monitored real-time threats using Splunk and ELK stack. Designed for enterprise-scale log correlation, anomaly detection, and security alerting."
+            data-img="./projects/siem.png">
           <div class="project-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
@@ -277,7 +399,7 @@
             </svg>
           </div>
           <h3>SIEM Dashboards</h3>
-          <p>Created comprehensive dashboards to monitor real-time security threats and anomalies using Splunk and ELK stack for enterprise environments.</p>
+          <p>Monitored real-time security threats and anomalies using Splunk and ELK stack for enterprise environments.</p>
           <div class="project-tags">
             <span class="tag">Splunk</span>
             <span class="tag">ELK Stack</span>
@@ -285,15 +407,90 @@
           </div>
         </div>
       </div>
-
+              <!-- Wireshark -->
       <div class="timeline-item left">
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-card"
+            data-title="Packet Analysis with Wireshark"
+            data-description="Captured and analyzed live network traffic to investigate protocols, detect anomalies, and troubleshoot connectivity issues. Applied filtering and deep packet inspection for security investigations."
+            data-img="projects/wireshark.png">
+          <div class="project-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 9h16M9 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Packet Analysis with Wireshark</h3>
+          <p>Performed in-depth traffic analysis to identify suspicious activity, troubleshoot networks, and gain insights into application-layer communications.</p>
+          <div class="project-tags">
+            <span class="tag">Wireshark</span>
+            <span class="tag">Packet Analysis</span>
+            <span class="tag">Network Security</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Burp Suite -->
+      <div class="timeline-item right">
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-card"
+            data-title="Web Application Testing with Burp Suite"
+            data-description="Performed penetration testing on web applications using Burp Suite. Conducted interception, request manipulation, fuzzing, and vulnerability exploitation to identify security flaws."
+            data-img="projects/burpsuit.png">
+          <div class="project-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+              <path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Web Application Testing with Burp Suite</h3>
+          <p>Utilized Burp Suite for web app security testing, including request interception, scanning, fuzzing, and vulnerability exploitation.</p>
+          <div class="project-tags">
+            <span class="tag">Burp Suite</span>
+            <span class="tag">Web Security</span>
+            <span class="tag">Pentesting</span>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Heartbleed Attack -->
+      <div class="timeline-item left">
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-card"
+            data-title="Heartbleed Vulnerability Exploitation"
+            data-description="Demonstrated exploitation of the OpenSSL Heartbleed vulnerability to extract sensitive information from memory. Highlighted the importance of patching and secure configurations."
+            data-img="projects/heartbleed.png">
+          <div class="project-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 21s-6-4.35-6-10a6 6 0 0 1 12 0c0 5.65-6 10-6 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Heartbleed Attack Demonstration</h3>
+          <p>Explored the Heartbleed OpenSSL flaw by testing its impact on vulnerable systems and extracting sensitive data from memory.</p>
+          <div class="project-tags">
+            <span class="tag">Heartbleed</span>
+            <span class="tag">OpenSSL</span>
+            <span class="tag">Exploitation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
         <div class="timeline-connector">
           <div class="timeline-dot"></div>
         </div>
         <div class="timeline-card"
             data-title="Penetration Test Lab"
             data-description="Set up a full red team/blue team lab with Kali Linux, Metasploitable, and Windows VMs. Used for penetration testing practice, privilege escalation, and defense strategies."
-            data-img="assets/projects/pentest-lab.png">
+            data-img="projects/vmsconfig.png">
           <div class="project-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
@@ -305,31 +502,9 @@
           <p>Built a comprehensive home laboratory with Kali Linux, Metasploitable, and Windows VMs for red team and blue team security simulations.</p>
           <div class="project-tags">
             <span class="tag" >Red Team</span>
+            <span class="tag" > Report writing</span>
             <span class="tag">Blue Team</span>
             <span class="tag">Virtualization</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item right">
-        <div class="timeline-connector">
-          <div class="timeline-dot"></div>
-        </div>
-        <div class="timeline-card"
-            data-title="Vulnerability Assessment"
-            data-description="Conducted in-depth security audits with Nessus, OpenVAS, and OWASP techniques. Combined automated scanning with manual validation to highlight critical exposures."
-            data-img="assets/projects/vulnerability.png">
-          <div class="project-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3>Vulnerability Assessment</h3>
-          <p>Conducted comprehensive security assessments using automated scanning tools and manual testing methodologies to identify critical vulnerabilities.</p>
-          <div class="project-tags">
-            <span class="tag">OWASP</span>
-            <span class="tag">Nessus</span>
-            <span class="tag">Manual Testing</span>
           </div>
         </div>
       </div>
@@ -339,21 +514,21 @@
           <div class="timeline-dot"></div>
         </div>
         <div class="timeline-card"
-            data-title="Security Policies"
-            data-description="Developed security policies and incident response playbooks based on NIST and ISO 27001 frameworks. Ensured compliance and structured escalation paths."
-            data-img="assets/projects/policies.png">
+            data-title="Vulnerability Assessment"
+            data-description="Conducted in-depth security audits with Nessus, OpenVAS, and OWASP techniques. Combined automated scanning with manual validation to highlight critical exposures."
+            data-img="projects/Openvas.png">
           <div class="project-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" stroke="currentColor" stroke-width="2"/>
-              <rect x="8" y="2" width="8" height="4" rx="1" ry="1" stroke="currentColor" stroke-width="2"/>
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <h3>Security Policies</h3>
-          <p>Developed comprehensive security policies and incident response procedures following industry best practices and compliance frameworks.</p>
+          <h3>Vulnerability Assessment</h3>
+          <p>Conducted comprehensive security assessments using automated scanning tools and manual testing methodologies to identify critical vulnerabilities.</p>
           <div class="project-tags">
-            <span class="tag">Policy Development</span>
-            <span class="tag">Compliance</span>
-            <span class="tag">Risk Management</span>
+            <span class="tag">OWASP</span>
+            <span class="tag">OpenVAS</span>
+            <span class="tag">Nessus</span>
+            <span class="tag">Manual Testing</span>
           </div>
         </div>
       </div>
@@ -363,9 +538,33 @@
           <div class="timeline-dot"></div>
         </div>
         <div class="timeline-card"
+            data-title="Security Policies"
+            data-description="Developed security policies and incident response playbooks based on NIST and ISO 27001 frameworks. Ensured compliance and structured escalation paths.Password policy: enforced strong credentials in MariaDB & PHP forms,Access control: Apache restricted sensitive directories,Error handling: custom 404 page, server info hidden,Database security: least privilege user permissions on a LAMP stack environment application"
+            data-img="projects/secpolicies.png">
+          <div class="project-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" stroke="currentColor" stroke-width="2"/>
+              <rect x="8" y="2" width="8" height="4" rx="1" ry="1" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>Security Policies</h3>
+          <p>Developed comprehensive security policies and incident response procedures following industry best practices and compliance frameworks .</p>
+          <div class="project-tags">
+            <span class="tag">Policy Development</span>
+            <span class="tag">Compliance</span>
+            <span class="tag">Risk Management</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item left">
+        <div class="timeline-connector">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-card"
             data-title="Network Hardening"
             data-description="Applied CIS benchmarks, firewall tuning, and endpoint protections to harden enterprise infrastructure. Reduced attack surface and enforced best practices."
-            data-img="assets/projects/hardening.png">
+            data-img="projects\Screenshot on Networking assignment.png">
           <div class="project-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
@@ -384,13 +583,15 @@
     </div>
   </section>
 
+  
+
   <!-- Modal -->
 <div id="project-modal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
-    <img id="modal-img" src="" alt="Project Image">
-    <h3 id="modal-title"></h3>
-    <p id="modal-description"></p>
+    <img id="project-modal-img" src="" alt="Project Image">
+    <h3 id="project-modal-title"></h3>
+    <p id="project-modal-description"></p>
   </div>
 </div>
   
