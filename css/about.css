@@ -191,7 +191,7 @@ body {
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
+  width: 85%;
   padding: 4px 30px;
   display: flex;
   justify-content: space-between;
@@ -242,7 +242,7 @@ body {
     padding: 4px 8px;
     margin: 0 auto;
     border-radius: 12px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     flex-direction: column
   }
 }
