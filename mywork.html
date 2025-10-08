@@ -14,77 +14,11 @@
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html" >About</a></li>
-    <li class="dropdown">
-      <a href="projects.html" class="active">Projects ▼</a>
-      <ul class="dropdown-content">
-        <li><a href="cybersecurity.html">Cybersecurity</a></li>
-        <li><a href="software.html">Software Engineering</a></li>
-      </ul>
-        </li>
-        <style>
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        min-width: 160px;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        z-index: 1;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-      }
-      .dropdown:hover .dropdown-content,
-      .dropdown:focus-within .dropdown-content,
-      .dropdown:active .dropdown-content {
-        display: block;
-      }
-      .dropdown {
-        position: relative;
-      }
-      .dropdown-content li a {
-        display: block;
-        padding: 10px 16px;
-        color: #333;
-        text-decoration: none;
-      }
-      .dropdown-content li a:hover {
-        background-color: #141414;
-        border-bottom: 2px solid #0ec0c0;
-      }
-        </style>
-        <script>
-      // Show dropdown on click or hover
-      document.addEventListener('DOMContentLoaded', function() {
-        var dropdown = document.querySelector('.dropdown');
-        var dropdownContent = dropdown.querySelector('.dropdown-content');
-        // Ensure dropdown is hidden on page load
-        dropdownContent.style.display = 'none';
-        // Show/hide on click (for mobile/touch)
-        dropdown.querySelector('a').addEventListener('click', function(e) {
-          e.preventDefault();
-          dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-        });
-        // Show on hover (for desktop)
-        dropdown.addEventListener('mouseenter', function() {
-          dropdownContent.style.display = 'block';
-        });
-        dropdown.addEventListener('mouseleave', function() {
-          dropdownContent.style.display = 'none';
-        });
-      });
-        // Hide dropdown when mouse leaves the dropdown area
-        dropdown.addEventListener('mouseleave', function() {
-          dropdownContent.style.display = 'none';
-        });
-
-        // Hide dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-          if (!dropdown.contains(e.target)) {
-            dropdownContent.style.display = 'none';
-          }
-        });
-        </script>
-    </li>
-    <li><a href="#contact">Contact</a></li>
+    <li>
+      <a href="mywork.html" class="active">Projects ▼</a>
+      
+          </li>
+          <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
