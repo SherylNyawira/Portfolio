@@ -280,42 +280,146 @@ body {
 }
 
 
-/* Contact Section */
+/* === Contact Section (Cyber Irregular Style) === */
 .contact-section {
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
   text-align: center;
   color: #fff;
-}
-
-
-
-.contact-section h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  font-weight: bold;
-  background: linear-gradient(90deg, #ff00cc, #3333ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
   position: relative;
-  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.8s ease forwards;
+  overflow: hidden;
 }
 
-.contact-section h2:hover {
-  transform: scale(1.08);
-  
+/* Section Title */
+.contact-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #ff00cc, #3333ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glowTitle 3s ease-in-out infinite alternate;
 }
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+@keyframes glowTitle {
+  from {
+    text-shadow: 0 0 10px #ff00cc, 0 0 20px #3333ff;
   }
+  to {
+    text-shadow: 0 0 25px #ff33ff, 0 0 35px #00f0ff;
+  }
+}
+
+/* Contact Card */
+.contact-card {
+  position: relative;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 700px;
+  padding: 50px 40px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 160px 100px 160px 30px;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(0.5deg); }
+}
+
+/* Animated blob behind the form */
+.contact-shape {
+  position: absolute;
+  top: -50px;
+  left: -60px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle at center, rgba(0, 255, 204, 0.7), transparent 70%);
+  filter: blur(150px);
+  animation: moveBlob 10s infinite ease-in-out alternate;
+  z-index: 0;
+}
+
+@keyframes moveBlob {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, 40px) scale(1.2); }
+  100% { transform: translate(-30px, -40px) scale(1); }
+}
+
+/* Input Fields */
+.contact-form {
+  position: relative;
+  z-index: 2;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px 18px;
+  border: none;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.07);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  box-shadow: 0 0 10px #00f5a0, 0 0 20px #8a5cff;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Send Button */
+.send-btn {
+  width: 100%;
+  padding: 14px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #000;
+  background: linear-gradient(90deg, #00f5a0, #00d9f5, #8a5cff);
+  background-size: 200% auto;
+  transition: all 0.4s ease;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.send-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #00f5a0, 0 0 45px #8a5cff;
+}
+
+/* Social Links */
+.social-links {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  font-size: 1.8rem;
+  color: #fff;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.4);
+  color: #00f5d4;
 }
 
 

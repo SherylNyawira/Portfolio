@@ -180,7 +180,48 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
             }
         });
 
- // Handle contact button to contact section
- document.getElementById('contactButton').addEventListener('click', function() {
-   document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
- });
+ // === Smooth scroll for contact button ===
+const contactBtn = document.getElementById('contactButton');
+if (contactBtn) {
+  contactBtn.addEventListener('click', () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+}
+
+// === Handle Formspree Contact Form ===
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault(); // stop Formspree redirect
+
+      const data = new FormData(form);
+      const object = Object.fromEntries(data.entries()); // convert to plain object
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          headers: { 
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(object)
+        });
+
+        if (response.ok) {
+          // no redirect, just success message
+          alert("✅ Message sent successfully! I’ll get back to you soon.");
+          form.reset();
+        } else {
+          alert("❌ There was an issue sending your message. Try again later.");
+        }
+      } catch (error) {
+        alert("⚠️ Network error. Please check your connection and try again.");
+      }
+    });
+  }
+});
