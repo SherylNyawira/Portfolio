@@ -57,7 +57,7 @@ I thrive in hands-on, challenge-based environments — from debugging complex co
   <div class="contact-card">
     <div class="contact-shape"></div>
 
- <form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+ <form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST" data-redirect="false">
   <input type="hidden" name="access_key" value="b7561142-d078-4027-a1cd-96cb20bf9968">
 
   <div class="form-group">
@@ -72,7 +72,7 @@ I thrive in hands-on, challenge-based environments — from debugging complex co
   <button type="submit" class="send-btn">Send Message</button>
 </form>
 
-
+<p id="form-status"></p>
   <!-- Social Links -->
   <div class="social-links">
     <a href="https://github.com/SherylNyawira" target="_blank"><i class="fab fa-github"></i></a>
@@ -83,6 +83,31 @@ I thrive in hands-on, challenge-based environments — from debugging complex co
     <a href="https://discord.com/users/annrylsh_cybersec" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
   </div>
 </section>
-<script src="script.js"></script>
+
+<!-- <script>
+  document.addEventListener('scroll', () => {
+    const contactSection = document.querySelector('#contact');
+    const contactSectionBottom = contactSection.getBoundingClientRect().bottom;
+    const aboutSection = document.querySelector('.about');
+    const aboutSectionTop = aboutSection.getBoundingClientRect().top;
+
+    if (window.scrollY + window.innerHeight >= contactSectionBottom) {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+      });
+
+      setTimeout(() => {
+        window.location.href = 'mywork.html';
+      }, 3000); // Adjust delay as needed for smooth transition
+    } else if (window.scrollY <= aboutSectionTop) {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  });
+</script> -->
+
 </body>
 </html>

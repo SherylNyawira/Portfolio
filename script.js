@@ -157,71 +157,64 @@ window.addEventListener("click", (e) => {
 
 
 
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simple form validation
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            if (name && email && message) {
-                // In a real application, you would send the form data to a server here
-                // For this example, we'll just show the success message
-                document.getElementById('successMessage').style.display = 'block';
-                
-                // Reset the form
-                document.getElementById('contactForm').reset();
-                
-                // Hide success message after 5 seconds
-                setTimeout(function() {
-                    document.getElementById('successMessage').style.display = 'none';
-                }, 5000);
-            }
-        });
+// Removed duplicate event listener to prevent multiple submissions
 
- // === Smooth scroll for contact button ===
-const contactBtn = document.getElementById('contactButton');
-if (contactBtn) {
-  contactBtn.addEventListener('click', () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+ document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM loaded");
+  
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("form-status");
+
+  console.log("Form element:", form);
+  console.log("Status element:", status);
+
+  if (!form) {
+    console.error("Form not found!");
+    return;
+  }
+
+  if (!status) {
+    console.error("Status element not found!");
+    return;
+  }
+
+  form.addEventListener("submit", async (e) => {
+    console.log("Form submitted - preventing default");
+    e.preventDefault(); // MUST be first thing
+    e.stopPropagation(); // Extra safety
+
+    // Show sending message immediately
+    status.textContent = "⏳ Sending...";
+    status.style.color = "white";
+
+    // Gather form data
+    const formData = new FormData(form);
+
+    try {
+      // Submit using fetch
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.json();
+      console.log("Response:", result);
+
+      if (response.ok) {
+        status.textContent = "✅ Message sent successfully!";
+        status.style.color = "lightgreen";
+        form.reset();
+      } else {
+        status.textContent = `❌ ${result.message || 'Something went wrong'}`;
+        status.style.color = "red";
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      status.textContent = "⚠️ Network error. Please try again later.";
+      status.style.color = "orange";
     }
   });
-}
 
-// === Handle Formspree Contact Form ===
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("contactForm");
-
-  if (form) {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault(); // stop Formspree redirect
-
-      const data = new FormData(form);
-      const object = Object.fromEntries(data.entries()); // convert to plain object
-
-      try {
-        const response = await fetch(form.action, {
-          method: "POST",
-          headers: { 
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
-          body: JSON.stringify(object)
-        });
-
-        if (response.ok) {
-          // no redirect, just success message
-          alert("✅ Message sent successfully! I’ll get back to you soon.");
-          form.reset();
-        } else {
-          alert("❌ There was an issue sending your message. Try again later.");
-        }
-      } catch (error) {
-        alert("⚠️ Network error. Please check your connection and try again.");
-      }
-    });
-  }
+  console.log("Event listener attached");
 });
+
