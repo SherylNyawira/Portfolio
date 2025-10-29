@@ -37,7 +37,7 @@ I thrive in hands-on, challenge-based environments — from debugging complex co
       <a href="mywork.html" >Projects ▼</a>
       
           </li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="mywork.html#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -53,11 +53,11 @@ I thrive in hands-on, challenge-based environments — from debugging complex co
 <section id="contact" class="contact-section">
   <h2>Contact Me</h2>
   <p>Get in touch with me via social media or send me an email. 😉</p>
-
+<!-- 
   <div class="contact-card">
-    <div class="contact-shape"></div>
+    <div class="contact-shape"></div> -->
 
- <form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST" data-redirect="false">
+ <!-- <form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST" data-redirect="false">
   <input type="hidden" name="access_key" value="b7561142-d078-4027-a1cd-96cb20bf9968">
 
   <div class="form-group">
@@ -70,7 +70,7 @@ I thrive in hands-on, challenge-based environments — from debugging complex co
     <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
   </div>
   <button type="submit" class="send-btn">Send Message</button>
-</form>
+</form> -->
 
 <p id="form-status"></p>
   <!-- Social Links -->
@@ -108,6 +108,18 @@ I thrive in hands-on, challenge-based environments — from debugging complex co
     }
   });
 </script> -->
+
+ <!--footer section  -->
+<div id="footer"></div>
+
+<script>
+  // Dynamically load footer.html
+  fetch("footer.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("footer").innerHTML = html;
+    });
+</script>
 
 </body>
 </html>
