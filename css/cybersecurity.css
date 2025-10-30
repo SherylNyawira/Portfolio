@@ -1211,7 +1211,7 @@ iframe {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  box-shadow: 0 0 10px #00f5a0, 0 0 20px #8a5cff;
+  box-shadow: 0 0 10px #00f5a0, 0 0 20px #f04ed8;
   background: rgba(255, 255, 255, 0.15);
 }
 
@@ -1225,7 +1225,7 @@ iframe {
   border-radius: 12px;
   cursor: pointer;
   color: #000;
-  background: linear-gradient(90deg, #00f5a0, #00d9f5, #8a5cff);
+  background: linear-gradient(90deg, #00f5a0, #00d9f5, #e83ba3);
   background-size: 200% auto;
   transition: all 0.25s ease;
   animation: shimmer 4s linear infinite;
@@ -1241,7 +1241,7 @@ iframe {
 .send-btn:hover,
 .send-btn:active {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 0 25px #00f5a0, 0 0 45px #8a5cff;
+  box-shadow: 0 0 25px #00f5a0, 0 0 45px #f40f95;
 }
 
 /* Tablet adjustments (large phones / small tablets) */
