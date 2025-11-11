@@ -156,65 +156,51 @@ window.addEventListener("click", (e) => {
 });
 
 
-
 // Removed duplicate event listener to prevent multiple submissions
+// Ensured no redirect occurs after submission (redirect: "manual" and no window.location changes)
 
- document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM loaded");
-  
+document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
   const status = document.getElementById("form-status");
 
-  console.log("Form element:", form);
-  console.log("Status element:", status);
-
-  if (!form) {
-    console.error("Form not found!");
-    return;
-  }
-
-  if (!status) {
-    console.error("Status element not found!");
-    return;
-  }
+  if (!form || !status) return;
 
   form.addEventListener("submit", async (e) => {
-    console.log("Form submitted - preventing default");
-    e.preventDefault(); // MUST be first thing
-    e.stopPropagation(); // Extra safety
+    e.preventDefault();
+    e.stopPropagation();
 
-    // Show sending message immediately
     status.textContent = "⏳ Sending...";
     status.style.color = "white";
 
-    // Gather form data
     const formData = new FormData(form);
 
     try {
-      // Submit using fetch
+      // Prevent automatic following of redirects from the server
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData
+        body: formData,
+        redirect: "manual"
       });
 
-      const result = await response.json();
-      console.log("Response:", result);
+      let result;
+      try {
+        result = await response.json();
+      } catch {
+        result = {};
+      }
 
+      // Treat successful HTTP response as success and do NOT redirect
       if (response.ok) {
         status.textContent = "✅ Message sent successfully!";
         status.style.color = "lightgreen";
         form.reset();
       } else {
-        status.textContent = `❌ ${result.message || 'Something went wrong'}`;
+        status.textContent = `❌ ${result.message || "Something went wrong"}`;
         status.style.color = "red";
       }
     } catch (error) {
-      console.error("Error:", error);
       status.textContent = "⚠️ Network error. Please try again later.";
       status.style.color = "orange";
     }
   });
-
-  console.log("Event listener attached");
 });
-
