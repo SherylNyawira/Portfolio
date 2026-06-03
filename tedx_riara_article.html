@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEDx Riara University — Catalysts of Change</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --red: #FF2D2D;
+  --red2: #FF6B6B;
+  --red-glow: rgba(255,45,45,0.15);
+  --amber: #FFB800;
+  --white: #F0EDE8;
+  --offwhite: #C8C4BE;
+  --gray: #666360;
+  --dark: #080808;
+  --card: #0F0F0F;
+  --card2: #141414;
+  --border: #1E1E1E;
+  --border2: #2A2A2A;
+  --display: 'Bebas Neue', sans-serif;
+  --body: 'Outfit', sans-serif;
+  --code: 'JetBrains Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--dark);
+  color: var(--white);
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ===== NOISE TEXTURE OVERLAY ===== */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+a { color: var(--red); text-decoration: none; }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-bg-text {
+  position: absolute;
+  top: -40px;
+  left: -10px;
+  font-family: var(--display);
+  font-size: clamp(120px, 22vw, 280px);
+  color: #0F0000;
+  letter-spacing: 4px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.hero-content {
+  position: relative;
+  padding: 70px 64px 52px;
+}
+
+.event-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--code);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  border: 1px solid var(--red);
+  padding: 6px 16px;
+  margin-bottom: 36px;
+}
+
+.event-tag::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--red);
+  border-radius: 50%;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.7); }
+}
+
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(64px, 11vw, 148px);
+  line-height: 0.88;
+  letter-spacing: 3px;
+  margin-bottom: 6px;
+  color: var(--white);
+}
+
+.hero h1 .stroke {
+  -webkit-text-stroke: 2px var(--red);
+  color: transparent;
+}
+
+.hero-sub {
+  font-family: var(--code);
+  font-size: 12px;
+  color: var(--gray);
+  letter-spacing: 2px;
+  margin-top: 28px;
+  max-width: 560px;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.hero-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--red) 0%, var(--border) 40%);
+  margin: 36px 0 28px;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  padding: 12px 28px 12px 0;
+  margin-right: 28px;
+  border-right: 1px solid var(--border2);
+}
+.meta-item:last-child { border-right: none; }
+
+.meta-label {
+  font-family: var(--code);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 4px;
+}
+
+.meta-value {
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.2px;
+}
+
+/* ===== AUTHOR BYLINE ===== */
+.byline-bar {
+  padding: 14px 64px;
+  background: #0B0000;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.byline-avatar {
+  width: 32px;
+  height: 32px;
+  background: var(--red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--display);
+  font-size: 14px;
+  color: #fff;
+  flex-shrink: 0;
+  letter-spacing: 1px;
+}
+
+.byline-text {
+  font-family: var(--code);
+  font-size: 11px;
+  color: var(--offwhite);
+  letter-spacing: 0.5px;
+}
+
+.byline-text span {
+  color: var(--gray);
+  margin-left: 12px;
+}
+
+/* ===== SPEAKER INDEX ===== */
+.index-bar {
+  padding: 20px 64px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.index-label {
+  font-family: var(--code);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gray);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.index-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.index-pill {
+  font-family: var(--code);
+  font-size: 10px;
+  color: var(--gray);
+  border: 1px solid var(--border2);
+  padding: 3px 12px;
+  letter-spacing: 0.5px;
+  cursor: default;
+  transition: all 0.2s;
+}
+
+.index-pill:hover {
+  color: var(--red2);
+  border-color: var(--red);
+}
+
+/* ===== INTRO ===== */
+.intro {
+  padding: 56px 64px;
+  max-width: 860px;
+  border-bottom: 1px solid var(--border);
+}
+
+.intro p {
+  font-size: 17px;
+  line-height: 1.85;
+  color: var(--offwhite);
+  margin-bottom: 18px;
+  font-weight: 300;
+}
+
+.intro p strong { color: var(--white); font-weight: 600; }
+.intro p em { color: var(--red2); font-style: italic; }
+
+/* ===== SESSION HEADER ===== */
+.session-header {
+  position: relative;
+  padding: 32px 64px;
+  background: var(--card2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-top: 56px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.session-header::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--red);
+}
+
+.session-header::after {
+  content: attr(data-num);
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--display);
+  font-size: 100px;
+  color: #1A0000;
+  letter-spacing: 2px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.session-num {
+  font-family: var(--code);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.session-title {
+  font-family: var(--display);
+  font-size: 32px;
+  letter-spacing: 2px;
+  line-height: 1;
+  color: var(--white);
+}
+
+.session-q {
+  margin-left: auto;
+  font-family: var(--code);
+  font-size: 10px;
+  font-style: italic;
+  color: var(--gray);
+  text-align: right;
+  max-width: 200px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== TALKS GRID ===== */
+.talks-grid {
+  padding: 0 64px 32px;
+}
+
+/* ===== TALK CARD ===== */
+.talk-card {
+  margin-top: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.2s;
+}
+
+.talk-card:hover {
+  border-color: #3A1010;
+  transform: translateY(-1px);
+}
+
+.talk-card-accent {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--red) 0%, transparent 60%);
+}
+
+.talk-inner { padding: 28px 36px 32px; }
+
+.talk-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+
+.talk-speaker-name {
+  font-family: var(--display);
+  font-size: 28px;
+  letter-spacing: 1.5px;
+  line-height: 1.1;
+  color: var(--white);
+}
+
+.talk-theme-badge {
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--red2);
+  font-family: var(--code);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.talk-bio {
+  font-family: var(--code);
+  font-size: 10px;
+  color: var(--gray);
+  margin-bottom: 20px;
+  letter-spacing: 0.3px;
+  line-height: 1.6;
+}
+
+.talk-body {
+  font-size: 14px;
+  color: #A8A4A0;
+  line-height: 1.9;
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+
+.talk-body p { margin-bottom: 12px; }
+.talk-body p:last-child { margin-bottom: 0; }
+.talk-body strong { color: var(--white); font-weight: 600; }
+.talk-body em { color: var(--red2); }
+
+/* ===== ACRONYM BOX ===== */
+.acronym-box {
+  background: #0A0000;
+  border: 1px solid #2A0000;
+  border-left: 3px solid var(--red);
+  padding: 22px 26px;
+  margin-top: 20px;
+}
+
+.acronym-title {
+  font-family: var(--code);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+}
+
+.acronym-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.acronym-letter {
+  font-family: var(--display);
+  font-size: 30px;
+  color: var(--red);
+  min-width: 22px;
+  line-height: 1;
+}
+
+.acronym-def {
+  font-size: 13px;
+  color: #A8A4A0;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.acronym-def strong {
+  color: var(--white);
+  font-weight: 500;
+}
+
+/* ===== TAKEAWAYS ===== */
+.takeaways {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.takeaways-label {
+  font-family: var(--code);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+}
+
+.takeaway-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--offwhite);
+  line-height: 1.7;
+}
+
+.takeaway-item::before {
+  content: '▸';
+  color: var(--amber);
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-size: 11px;
+}
+
+/* ===== PULL QUOTE ===== */
+.pull-quote {
+  margin: 40px 64px;
+  padding: 44px 52px;
+  background: #0A0000;
+  border: 1px solid #2A0000;
+  border-left: 5px solid var(--red);
+  position: relative;
+  overflow: hidden;
+}
+
+.pull-quote::before {
+  content: '"';
+  position: absolute;
+  top: -20px; left: 36px;
+  font-family: var(--display);
+  font-size: 180px;
+  color: #1A0000;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.pull-quote p {
+  font-family: var(--display);
+  font-size: clamp(20px, 3.5vw, 34px);
+  letter-spacing: 1px;
+  line-height: 1.25;
+  color: var(--white);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.pull-quote cite {
+  font-family: var(--code);
+  font-size: 10px;
+  color: var(--gray);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-style: normal;
+}
+
+/* ===== CLOSING ===== */
+.closing {
+  margin: 56px 64px 0;
+  padding: 52px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--red);
+}
+
+.closing-heading {
+  font-family: var(--display);
+  font-size: 48px;
+  letter-spacing: 2px;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.closing-sub {
+  font-family: var(--code);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 32px;
+}
+
+.closing p {
+  font-size: 15px;
+  color: #A8A4A0;
+  line-height: 1.9;
+  font-weight: 300;
+  max-width: 720px;
+  margin-bottom: 16px;
+}
+
+.closing p strong { color: var(--white); font-weight: 600; }
+
+/* ===== JOURNEY GRID ===== */
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 36px 0;
+}
+
+.journey-cell {
+  background: var(--card2);
+  padding: 22px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s;
+}
+
+.journey-cell:hover { background: #130000; }
+
+.journey-num {
+  font-family: var(--display);
+  font-size: 42px;
+  color: #2A0000;
+  line-height: 1;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.journey-title {
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+
+.journey-desc {
+  font-family: var(--code);
+  font-size: 10px;
+  color: var(--gray);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.journey-cell::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--red);
+  transition: width 0.3s;
+}
+
+.journey-cell:hover::after { width: 100%; }
+
+/* ===== AUTHOR SIGN-OFF ===== */
+.signoff {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.signoff-avatar {
+  width: 44px;
+  height: 44px;
+  background: var(--red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--display);
+  font-size: 18px;
+  color: #fff;
+  flex-shrink: 0;
+  letter-spacing: 1px;
+}
+
+.signoff-name {
+  font-family: var(--body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+
+.signoff-role {
+  font-family: var(--code);
+  font-size: 10px;
+  color: var(--gray);
+  letter-spacing: 1px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 60px;
+  padding: 28px 64px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--red);
+  border-radius: 50%;
+}
+
+footer p {
+  font-family: var(--code);
+  font-size: 10px;
+  color: var(--gray);
+  letter-spacing: 1px;
+}
+
+footer a {
+  font-family: var(--code);
+  font-size: 10px;
+  color: var(--red);
+  letter-spacing: 1px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+footer a:hover { border-color: var(--red); }
+
+@media (max-width: 640px) {
+  .hero-content, .intro, .talks-grid, .index-bar, .byline-bar, footer { padding-left: 20px; padding-right: 20px; }
+  .session-header { padding-left: 20px; padding-right: 20px; }
+  .session-header::after { display: none; }
+  .session-q { display: none; }
+  .pull-quote { margin: 32px 20px; padding: 28px 24px; }
+  .closing { margin: 40px 20px 0; padding: 28px 24px; }
+  .journey-grid { grid-template-columns: 1fr 1fr; }
+  footer { padding: 20px; }
+  .hero-bg-text { font-size: 80px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg-text">CATALYSTS</div>
+  <div class="hero-content">
+    <div class="event-tag">TEDx Field Report · Braeburn Theatre</div>
+    <h1>CATALYSTS<br>OF <span class="stroke">CHANGE</span></h1>
+    <p class="hero-sub">A student from Muranga University of Technology chronicles an afternoon of radical ideas, honest stories, and uncomfortable futures at TEDx Riara University.</p>
+    <div class="hero-divider"></div>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <div class="meta-label">Event</div>
+        <div class="meta-value">TEDx Riara University</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Date</div>
+        <div class="meta-value">Saturday, 30 May 2025</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Venue</div>
+        <div class="meta-value">Braeburn Theatre</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Sessions</div>
+        <div class="meta-value">3 Sessions · 12 Speakers</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- BYLINE -->
+<div class="byline-bar">
+  <div class="byline-avatar">SN</div>
+  <div class="byline-text">
+    Written by <strong>Sherylann Nyawira</strong>
+    <span>· Student, Muranga University of Technology · Personal field notes & reflections</span>
+  </div>
+</div>
+
+<!-- SPEAKER INDEX -->
+<nav class="index-bar">
+  <span class="index-label">Speakers</span>
+  <div class="index-pills">
+    <span class="index-pill">Dr. Doris Change</span>
+    <span class="index-pill">Moses Kakoa</span>
+    <span class="index-pill">Kamau Munyori</span>
+    <span class="index-pill">Moses Liech</span>
+    <span class="index-pill">Samuel Obukosia</span>
+    <span class="index-pill">O'Maxwell Gad</span>
+    <span class="index-pill">Mary Mwangi</span>
+    <span class="index-pill">Samson Ngengi</span>
+    <span class="index-pill">James Nyabera</span>
+    <span class="index-pill">Loraine Sagini</span>
+    <span class="index-pill">Silvia Muhaya</span>
+    <span class="index-pill">Maria Mejia</span>
+  </div>
+</nav>
+
+<!-- INTRO -->
+<section class="intro">
+  <p>On a Saturday at the end of May, students from <strong>Muranga University of Technology</strong> were taken to something unexpected — not a lecture, not a lab, but a theatre packed with ideas that refused to stay comfortable. The event was <strong>TEDx Riara University</strong>, held at the Braeburn Theatre, and the theme — <em>Catalysts of Change</em> — turned out to be not just a label but a lived experience across three electric sessions.</p>
+  <p>What follows is my firsthand account of the talks, the ideas, and the questions that are still rattling around days later.</p>
+</section>
+
+<!-- ===================== SESSION 01 ===================== -->
+<div class="session-header" data-num="01">
+  <span class="session-num">Session 01</span>
+  <span class="session-title">THE BIG QUESTION</span>
+  <span class="session-q">What if you are wrong?</span>
+</div>
+
+<div class="talks-grid">
+
+  <!-- DR DORIS -->
+  <div class="talk-card">
+    <div class="talk-card-accent"></div>
+    <div class="talk-inner">
+      <div class="talk-header">
+        <div class="talk-speaker-name">Dr. Doris Change</div>
+        <div class="talk-theme-badge">Thank God It's Monday Again</div>
+      </div>
+      <p class="talk-bio">Founder, Elite Governance and Leadership Center &nbsp;·&nbsp; PhD Strategic Leadership &nbsp;·&nbsp; Author</p>
+      <div class="talk-body">
+        <p>Dr. Doris opened the event with a provocation most of us had never considered: people don't dread Monday mornings because of the <em>work</em> — they dread them because of the <em>leadership</em> around them. Her framework, <strong>ELITE</strong>, reframes what good leadership looks like from the ground up.</p>
+        <p>She challenged the room to stop waiting for a job title before showing leadership. Influence, trust, and emotional intelligence are not rewards for seniority — they are the tools you start using now.</p>
+      </div>
+      <div class="acronym-box">
+        <div class="acronym-title">// The ELITE Framework</div>
+        <div class="acronym-row"><span class="acronym-letter">E</span><span class="acronym-def"><strong>Execute Presence</strong> — show up fully, not just physically</span></div>
+        <div class="acronym-row"><span class="acronym-letter">L</span><span class="acronym-def"><strong>Leadership Visibility</strong> — be seen doing the work</span></div>
+        <div class="acronym-row"><span class="acronym-letter">I</span><span class="acronym-def"><strong>Influence Before Title</strong> — lead before you're given permission</span></div>
+        <div class="acronym-row"><span class="acronym-letter">T</span><span class="acronym-def"><strong>Trust & Emotional Intelligence</strong> — the invisible architecture of great teams</span></div>
+        <div class="acronym-row"><span class="acronym-letter">E</span><span class="acronym-def"><strong>Engage & Empower</strong> — build organizations people actually want to show up for</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOSES KAKOA -->
+  <div class="talk-card">
+    <div class="talk-card-accent"></div>
+    <div class="talk-inner">
+      <div class="talk-header">
+        <div class="talk-speaker-name">Moses Kakoa</div>
+        <div class="talk-theme-badge">Strategic Communication</div>
+      </div>
+      <p class="talk-bio">Strategic Communications & Partnerships Lead, Cause Vision</p>
+      <div class="talk-body">
+        <p>Moses began with something disarmingly personal: his relationship with his mother and the endless arguments of being the last-born. Their resolution? A pact — before any argument escalates, both sides must fully articulate the other's perspective first.</p>
+        <p>That one household rule became the lens for a much larger idea about how we communicate across generations, cultures, and contexts. He spoke about the power of being someone who can <strong>translate between worlds</strong> — especially in tech, where teams are built of people from radically different backgrounds. That difference, he argues, is not a problem to manage. It is the product.</p>
+        <p>"Africa is not behind. Africa is rising. And I am part of the voice making that undeniable."</p>
+      </div>
+      <div class="takeaways">
+        <div class="takeaways-label">// Key Frameworks</div>
+        <div class="takeaway-item">Reality = both sides holding their perceptions simultaneously, not one overwriting the other</div>
+        <div class="takeaway-item">Working across generations and ethnicities is a competitive advantage, not a diversity checkbox</div>
+        <div class="takeaway-item">The future belongs to those who can translate — between disciplines, cultures, and eras</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KAMAU MUNYORI -->
+  <div class="talk-card">
+    <div class="talk-card-accent"></div>
+    <div class="talk-inner">
+      <div class="talk-header">
+        <div class="talk-speaker-name">Kamau Munyori</div>
+        <div class="talk-theme-badge">Are You Cringing More Lately?</div>
+      </div>
+      <p class="talk-bio">Strategy Planning Lead, Ogilvy Africa &nbsp;·&nbsp; MSc Consumer Analytics, University of Leeds</p>
+      <div class="talk-body">
+        <p>This was perhaps the most memorable talk of the first session. Kamau's central insight: the discomfort you feel when encountering a new idea — that cringe, that visceral "this is wrong" — is not a signal to retreat. It might be a signal that you're standing at the edge of the future.</p>
+        <p>His examples hit hard. When <strong>M-Pesa</strong> was first introduced, finance professionals laughed. You want to keep all your money on a Nokia button phone? Today, M-Pesa is the backbone of the Kenyan economy and a model studied the world over.</p>
+        <p>Then came <strong>Birkenstock</strong>. First dismissed as "ugly health footwear" in 1963, it ended up being imported to the US through health food stores. By the 1990s, Kate Moss was wearing them in fashion shoots. Today, Birkenstock collaborates with Dior, Valentino, and Manolo Blahnik.</p>
+        <p>The pattern is consistent: early discomfort is not evidence of a bad idea. It is often evidence of a <em>new</em> one.</p>
+      </div>
+      <div class="takeaways">
+        <div class="takeaways-label">// The Central Question</div>
+        <div class="takeaway-item">When something makes you cringe — is it a bad idea, or just an unfamiliar one?</div>
+        <div class="takeaway-item">Collective judgment now moves faster than culture can absorb. Cringe is often the gap.</div>
+        <div class="takeaway-item">The world's most transformative ideas almost always began as someone else's punchline</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="pull-quote">
+  <p>"Early discomfort is not evidence of a bad idea. It is often evidence of a new one."</p>
+  <cite>— Kamau Munyori · Strategy Planning Lead, Ogilvy Africa</cite>
+</div>
+
+<!-- ===================== SESSION 02 ===================== -->
+<div class="session-header" data-num="02" style="margin-top:56px;">
+  <span class="session-num">Session 02</span>
+  <span class="session-title">PERMISSION DENIED</span>
+  <span class="session-q">Why are you waiting?</span>
+</div>
+
+<div class="talks-grid">
+
+  <!-- MOSES LIECH -->
+  <div class="talk-card">
+    <div class="talk-card-accent"></div>
+    <div class="talk-inner">
+      <div class="talk-header">
+        <div class="talk-speaker-name">Moses Liech</div>
+        <div class="talk-theme-badge">Converting Thoughts Into Action</div>
+      </div>
+      <p class="talk-bio">Founder & CEO, Investa Farm — Fintech, UK & Kenya</p>
+      <div class="talk-body">
+        <p>Moses runs a fintech company that turns farm assets into tradeable investment classes. His talk stripped away the myth of the perfect plan. The insight: clarity is not a precondition for action. It is a byproduct of it.</p>
+      </div>
+      <div class="acronym-box">
+        <div class="acronym-title">// The R3 Framework</div>
+        <div class="acronym-row"><span class="acronym-letter">R</span><span class="acronym-def"><strong>Recognize</strong> — awareness is always the first step. Name the thing you keep avoiding.</span></div>
+        <div class="acronym-row"><span class="acronym-letter">R</span><span class="acronym-def"><strong>Reduce</strong> — shrink the scope. Run a small test. Learn with low risk, high feedback.</span></div>
+        <div class="acronym-row"><span class="acronym-letter">R</span><span class="acronym-def"><strong>Relief</strong> — the weight lifts when you start moving. Action creates momentum.</span></div>
+      </div>
+      <div class="takeaways">
+        <div class="takeaways-label">// Lines Worth Keeping</div>
+        <div class="takeaway-item">"Clarity comes from action."</div>
+        <div class="takeaway-item">"Builders don't wait for permission. They create momentum."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SAMUEL OBUKOSIA -->
+  <div class="talk-card">
+    <div class="talk-card-accent"></div>
+    <div class="talk-inner">
+      <div class="talk-header">
+        <div class="talk-speaker-name">Samuel Obukosia</div>
+        <div class="talk-theme-badge">AI & Entrepreneurship in Africa</div>
+      </div>
+      <p class="talk-bio">Director, i3 Launchpad &nbsp;·&nbsp; Startup Ecosystem Architect &nbsp;·&nbsp; AI Innovator</p>
+      <div class="talk-body">
+        <p>Samuel's question was blunt and necessary: when you use AI to build something, are you downloading someone else's solution — or are you actually solving a problem that exists in <em>your context</em>?</p>
+        <p>His work at i3 Launchpad supports young African founders through programs like i3Forge — not by handing them tools, but by helping them understand what problem they're solving before touching a single line of code.</p>
+        <p>His challenge: Africa should not be a consumer of technology. It should be a creator of it.</p>
+      </div>
+      <div class="takeaways">
+        <div class="takeaways-label">// The Core Challenge</div>
+        <div class="takeaway-item">"Are we downloading a solution — or solving a problem?"</div>
+        <div class="takeaway-item">Context matters. The same technology produces completely different outcomes depending on who deploys it and for whom.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- O'MAXWELL GAD -->
+  <div class="talk-card">
+    <div class="talk-card-accent"></div>
+    <div class="talk-inner">
+      <div class="talk-header">
+        <div class="talk-speaker-name">O'Maxwell Gad</div>
+        <div class="talk-theme-badge">Decentralizing Opportunity</div>
+      </div>
+      <p class="talk-bio">CEO, The O'Gad Impact Group</p>
+      <div class="talk-body">
+        <p>O'Maxwell challenged the invisible gravity that pulls every entrepreneur toward the capital. His argument: the most underserved problems — and therefore the largest opportunities — are not in the cities. They are in the places no one is looking.</p>
+        <p>Agriculture. Rural logistics. Informal trade networks. These are the foundation of the African economy, and they are waiting for builders willing to go there.</p>
+      </div>
+      <div class="takeaways">
+        <div class="takeaways-label">// The Opportunity Map</div>
+        <div class="takeaway-item">Not all value is in cities. The highest-impact opportunities often sit in the places with the least competition.</div>
+        <div class="takeaway-item">Decentralization is not just a blockchain concept — it's a strategy for inclusive economic growth.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARY MWANGI -->
+  <div class="talk-card">
+    <div class="talk-card-accent"></div>
+    <div class="talk-inner">
+      <div class="talk-header">
+        <div class="talk-speaker-name">Mary Mwangi</div>
+        <div class="talk-theme-badge">Fintech & Mass Transit</div>
+      </div>
+      <p class="talk-bio">Co-Founder & CEO, Data Integrated Limited &nbsp;·&nbsp; Board Member, Association of Fintechs in Kenya</p>
+      <div class="talk-body">
+        <p>Mary's company has spent 12 years turning the chaos of African mass transit into a technology-first sector. Her talk was a masterclass in identifying where the real power sits — not in boardrooms, but in the everyday friction that millions of people experience moving around a city.</p>
+        <p>She traced her fintech idea from raw observation to startup, recognized by the World Economic Forum, Citibank's Tech for Integrity, and Google Launchpad.</p>
+      </div>
+      <div class="takeaways">
+        <div class="takeaways-label">// Key Insight</div>
+        <div class="takeaway-item">"Power sits where the reality is." Go to where the actual problem lives — not where the comfortable conversation happens.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===================== SESSION 03 ===================== -->
+<div class="session-header" data-num="03" style="margin-top:56px;">
+  <span class="session-num">Session 03</span>
+  <span class="session-title">WHAT WE DON'T SAY</span>
+  <span class="session-q">The unspeakable truths</span>
+</div>
+
+<div class="talks-grid">
+
+  <!-- SAMSON NGENGI -->
+  <div class="talk-card">
+    <div class="talk-card-accent"></div>
+    <div class="talk-inner">
+      <div class="talk-header">
+        <div class="talk-speaker-name">Samson Ngengi</div>
+        <div class="talk-theme-badge">Intellectual Property & Dignity</div>
+      </div>
+      <p class="talk-bio">Director, Digital Transformation, Office of the First Lady &nbsp;·&nbsp; MD, Geoarms Systems Limited</p>
+      <div class="talk-body">
+        <p>This was the talk that landed heaviest. Samson is not just a geospatial systems expert and doctoral researcher — he is someone who has lived the cost of building something valuable without protection. His story of IP theft, of a brother lost to depression from a similar experience, of fighting through loans and legal systems to protect not just himself but every young innovator who comes after — it was delivered without performance, and that made it hit harder.</p>
+        <p>Twenty years at the frontier of digital transformation, and his most urgent message was not about systems. It was about <strong>identity</strong>. About not disappearing inside someone else's machine.</p>
+      </div>
+      <div class="takeaways">
+        <div class="takeaways-label">// Words That Stay</div>
+        <div class="takeaway-item">"Don't complain about problems. Build solutions."</div>
+        <div class="takeaway-item">"Don't disappear in your creativity. Find yourself."</div>
+        <div class="takeaway-item">"Don't be a ghost in someone else's system." — Employment that extracts your genius without credit is not a career, it's a transaction you're losing.</div>
+        <div class="takeaway-item">"Protection is the alignment with dignity."</div>
+        <div class="takeaway-item">"Protect your own life."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAMES NYABERA -->
+  <div class="talk-card">
+    <div class="talk-card-accent"></div>
+    <div class="talk-inner">
+      <div class="talk-header">
+        <div class="talk-speaker-name">James Nyabera</div>
+        <div class="talk-theme-badge">Men's Mental Health</div>
+      </div>
+      <p class="talk-bio">Founder, A Man Must Cry Mental Health Movement &nbsp;·&nbsp; Africa CDC Mental Health Leadership Changemaker</p>
+      <div class="talk-body">
+        <p>James holds two roles that don't often appear in the same sentence: research scientist and lived-experience mental health advocate. His movement — <strong>A Man Must Cry</strong> — exists to dismantle the cultural architecture that tells men that letting go, grieving, crying, and asking for help are signs of weakness.</p>
+        <p>His message was simple and necessary: releasing is not breaking down. It is how you rebuild. Whether you are a man or not — the relief of letting something go is not surrender. It is the precondition for showing up whole again.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LORAINE SAGINI -->
+  <div class="talk-card">
+    <div class="talk-card-accent"></div>
+    <div class="talk-inner">
+      <div class="talk-header">
+        <div class="talk-speaker-name">Loraine (Lolo) Sagini</div>
+        <div class="talk-theme-badge">When Do You Stop Being Yourself?</div>
+      </div>
+      <p class="talk-bio">Digital Marketer, Project Manager & Content Creator</p>
+      <div class="talk-body">
+        <p>Lolo told the truth about university that most people only speak in private — the way it can swallow you whole, the way depression can settle in so quietly that you stop recognizing yourself. She credited her family with helping her find her way back.</p>
+        <p>Her talk was about identity as a <em>living thing</em> — not fixed, not given, always evolving. And the courage required not just to be yourself, but to keep choosing yourself in environments that reward conformity.</p>
+      </div>
+      <div class="takeaways">
+        <div class="takeaways-label">// Lines That Linger</div>
+        <div class="takeaway-item">"Change becomes impossible when you stop pretending." — You have to name the thing before you can change it.</div>
+        <div class="takeaway-item">"Growth is visible when we look back." — You cannot always see it in the moment. That's okay.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SILVIA MUHAYA -->
+  <div class="talk-card">
+    <div class="talk-card-accent"></div>
+    <div class="talk-inner">
+      <div class="talk-header">
+        <div class="talk-speaker-name">Silvia Muhaya</div>
+        <div class="talk-theme-badge">Dignity Over Dependency</div>
+      </div>
+      <p class="talk-bio">CEO, Aletheia Institute &nbsp;·&nbsp; Advocate of the High Court of Kenya</p>
+      <div class="talk-body">
+        <p>Silvia arrives at empowerment through the law — with precision, analysis, and a structured critique of the ways well-meaning interventions can create the very dependency they claim to fight.</p>
+        <p>The distinction she draws is sharp: real empowerment is not the transfer of resources. It is the cultivation of the skills, confidence, and ownership required to thrive without reliance on someone else's generosity.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARIA MEJIA -->
+  <div class="talk-card">
+    <div class="talk-card-accent"></div>
+    <div class="talk-inner">
+      <div class="talk-header">
+        <div class="talk-speaker-name">Maria A. Mejia</div>
+        <div class="talk-theme-badge">Urban Biodiversity & Citizen Action</div>
+      </div>
+      <p class="talk-bio">Curator for Latin America & Caribbean, The Nature of Cities &nbsp;·&nbsp; Cerros de Bogotá Foundation</p>
+      <div class="talk-body">
+        <p>Maria closed the event with a view from Bogotá — working to consolidate the city's eastern hills into the largest urban socio-ecological corridor in Latin America: 57 kilometres of living infrastructure threading through one of the continent's largest cities.</p>
+        <p>Her message landed well in a room full of tech builders: find the people who see what you see. Start small. The tribe matters more than the scale. And protect what is valuable — not just because it is yours, but because it serves others.</p>
+      </div>
+      <div class="takeaways">
+        <div class="takeaways-label">// The Builder's Takeaway</div>
+        <div class="takeaway-item">Find your tribe before you find your scale. Community engagement is collective learning, not just outreach.</div>
+        <div class="takeaway-item">Protect what is rightful and useful — in ecology, in innovation, in life, this is the same principle.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="pull-quote">
+  <p>"Don't be a ghost in someone else's system. Protect your own life."</p>
+  <cite>— Samson Ngengi Njuguna · Director of Digital Transformation, Office of the First Lady</cite>
+</div>
+
+<!-- CLOSING REFLECTION -->
+<section class="closing">
+  <div class="closing-heading">CLOSING<br>REFLECTION</div>
+  <div class="closing-sub">// A personal reading by Sherylann Nyawira</div>
+
+  <p>Looking back at the full day — all three sessions, all twelve voices — there is a thread running through every single talk that no one explicitly named but everyone was describing. It is the full arc of a builder's life:</p>
+
+  <div class="journey-grid">
+    <div class="journey-cell">
+      <div class="journey-num">01</div>
+      <div class="journey-title">Finding the Idea</div>
+      <div class="journey-desc">Kamau's cringe. Obukosia's context question. The discomfort that signals something new is being born.</div>
+    </div>
+    <div class="journey-cell">
+      <div class="journey-num">02</div>
+      <div class="journey-title">Growing It</div>
+      <div class="journey-desc">Moses Liech's R3. Mary's 12-year journey. Clarity comes from action, not the other way around.</div>
+    </div>
+    <div class="journey-cell">
+      <div class="journey-num">03</div>
+      <div class="journey-title">Marketing It</div>
+      <div class="journey-desc">Moses Kakoa on communication across worlds. Dr. Doris on influence before title. Visibility is strategy.</div>
+    </div>
+    <div class="journey-cell">
+      <div class="journey-num">04</div>
+      <div class="journey-title">Surviving the Low</div>
+      <div class="journey-desc">Lolo losing herself. James saying men must cry too. Standing out is lonely. Feeling it is not weakness.</div>
+    </div>
+    <div class="journey-cell">
+      <div class="journey-num">05</div>
+      <div class="journey-title">Finding Your Tribe</div>
+      <div class="journey-desc">Maria's corridor built person by person. Silvia on building independence together. You cannot scale alone.</div>
+    </div>
+    <div class="journey-cell">
+      <div class="journey-num">06</div>
+      <div class="journey-title">Protecting What's Yours</div>
+      <div class="journey-desc">Samson's fight for IP. His brother's story. Don't be a ghost in someone else's system.</div>
+    </div>
+  </div>
+
+  <p>Nobody designed the event to tell this story in this order. But that is exactly what happened — and I think that is the most powerful thing about it. Life does not give you these lessons in sequence either. You get them scattered, out of order, often too late. A day like this compresses them. Twelve strangers walk onstage and accidentally hand you the full map.</p>
+
+  <p>Dr. Doris says lead before you have the title. Moses Kakoa says listen to the other side first. Kamau says the idea that makes you cringe might be the one that matters. Moses Liech says start before you're ready. Samuel says build from context. O'Maxwell says go where no one is looking. Samson says protect what you build.</p>
+
+  <p>James says let yourself feel it. Lolo says stay yourself even when the system asks you not to. Silvia says real empowerment is never handed to you. Maria says find your tribe.</p>
+
+  <p>Twelve talks. One throughline: <strong>you are already the catalyst.</strong> The question is what you're waiting for.</p>
+
+  <div class="signoff">
+    <div class="signoff-avatar">SN</div>
+    <div>
+      <div class="signoff-name">Sherylann Nyawira</div>
+      <div class="signoff-role">Student, Muranga University of Technology &nbsp;·&nbsp; <a href="https://tedxriarauniversity.co.ke/" target="_blank">tedxriarauniversity.co.ke</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <div class="footer-dot"></div>
+    <p>TEDx Riara University &nbsp;·&nbsp; Braeburn Theatre &nbsp;·&nbsp; 30 May 2025 &nbsp;·&nbsp; Written by Sherylann Nyawira</p>
+  </div>
+  <a href="https://tedxriarauniversity.co.ke/" target="_blank">tedxriarauniversity.co.ke ↗</a>
+</footer>
+
+</body>
+</html>
